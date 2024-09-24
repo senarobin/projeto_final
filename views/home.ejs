@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/unifacisalogo.png" alt="Unifacisa Logo" class="logo-img">
+            <p class="logo-name"><strong>Nupex</strong></p>
+        </div>
+        <ul class="opcoes-container">
+            <li class="opcao-container" id="loginBtn">Login</li>
+            <li class="opcao-container" id="cadastroBtn">Cadastro</li>
+            <li class="opcao-container">Suporte</li>
+        </ul>
+    </header>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span id="closeLogin" class="close">&times;</span>
+            <%- include('login') %>
+        </div>
+    </div>
+
+    <div id="cadastroModal" class="modal">
+        <div class="modal-content">
+            <span id="closeCadastro" class="close">&times;</span>
+            <%- include('cadastro') %>
+        </div>
+    </div>
+
+    <section class="pesquisa-container">
+        <h2>Já sabe por onde começar?</h2>
+        <h3>Encontre um projeto em nosso acervo</h3>
+        <input type="text" placeholder="Pesquise o projeto" class="input">
+        <p></p>
+    </section>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/dashboard_estilo/professor.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard <%= usuario.tipoUsuario === 'professor' ? 'do Professor' : 'do Aluno' %></h1>
+        <div class="profile-icon" onclick="toggleMenu()">
+            👤
+            <div class="dropdown-menu" id="profileMenu">
+                <a href="#">Meu Perfil</a>
+                <a href="#">Configurações</a>
+                <a href="/logout">Sair</a>
+            </div>
+        </div>
+        
+    </header>
+
+    <div class="content">
+        <h2>Bem-vindo, <%= usuario.matricula %></h2>
+    </div>
+
+    <script src="/dashboard_script/professor.js"></script>
+</body>
+</html>

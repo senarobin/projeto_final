@@ -1,0 +1,19 @@
+<h2>Cadastro</h2>
+<form action="/cadastro" method="post">
+    <div class="login-container">
+        <input type="radio" id="professor" name="tipoUsuario" value="professor" required>
+        <label for="professor">Professor</label>
+        <input type="radio" id="aluno" name="tipoUsuario" value="aluno" required>
+        <label for="aluno">Aluno</label>
+        <input type="text" placeholder="Matrícula" name="matricula" required autocomplete="off">
+        <input type="password" placeholder="Senha" name="senha" required autocomplete="off">
+        <label for="categoria">Sua área:</label>
+        <select id="categoria" name="categoria" required>
+            <option value="">Selecione uma opção</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="saude">Saúde</option>
+            <option value="humanas">Humanas</option>
+        </select>
+        <button type="submit">Cadastrar</button>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/dashboard_estilo/aluno.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/unifacisalogo.png" alt="Unifacisa Logo" class="logo-img">
+            <p class="logo-name"><strong>Nupex</strong></p>
+        </div>
+        <ul class="opcoes-container"></ul>
+            <li class="opcao-container" id="loginBtn">Login</li>
+            <li class="opcao-container" id="cadastroBtn">Cadastro</li>
+            <li class="opcao-container">Suporte</li>
+        </ul>
+        <div class="content">
+            <h4>Bem-vindo, <%= usuario.matricula %></h4>
+        </div>
+        <div class="profile-icon" onclick="toggleMenu()">
+            👤
+            <div class="dropdown-menu" id="profileMenu">
+                <a href="#">Meu Perfil</a>
+                <a href="#">Configurações</a>
+                <a href="/logout">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pesquisa-container"></section>
+        <h2>Já sabe por onde começar?</h2>
+        <h3>Encontre um projeto em nosso acervo</h3>
+        <input type="text" placeholder="Pesquise o projeto" class="input">
+        <p></p>
+    </section>
+
+    <script src="/dashboard_script/aluno.js"></script>
+</body>
+</html>
