@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Professor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/dashboard_estilo/professor.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Unifacisabasquete.png" alt="Logo da Instituição">
+                <h3>Painel do<br> Professor</h3>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard_professor/eventos_professor"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                    <li><a href="dashboard_professor/notificacoes_professor"><i class="fas fa-bell"></i> Notificações</a></li>
+                    <li><a href="dashboard_professor/suporte_professor"><i class="fas fa-headset"></i> Suporte</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Pesquisar projetos...">
+                    <button id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-info">
+                    <div class="avatar-dropdown">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3106/3106921.png" class="avatar">
+                        <div class="dropdown-content">
+                            <a href="/minha_conta">Minha Conta</a>
+                            <a href="/configuracoes">Configurações</a>
+                            <a href="/personalizacao">Personalização</a>
+                            <a href="/sair">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-content">
+                <h1>Bem-vindo, <%= usuario.matricula %>!</h1>
+                <%
+                function formatarData(data) {
+                    if (data) {
+                        const partes = new Date(data).toLocaleDateString('pt-BR').split('/');
+                        return `${partes[2]}-${partes[1]}-${partes[0]}`; 
+                    }
+                    return '';
+                }   
+                %>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Projetos Ativos</h3>
+                        <p>8</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Alunos Orientados</h3>
+                        <p>                            <% 
+                            let projetosConcluidos = 0;
+                            let projetosAtivos = 0;
+                            const hoje = new Date();
+                        
+                            if (Array.isArray(admissoes) && admissoes.length > 0) {
+                                projetosConcluidos = admissoes.filter(admissao => 
+                                    admissao && 
+                                    (admissao.status === 'Aprovado' || admissao.status === 'Aprovado com Bolsa') &&
+                                    new Date(admissao.data_termino) < hoje).length;
+                        
+                                projetosAtivos = admissoes.filter(admissao => 
+                                    admissao && 
+                                    (admissao.status === 'Aprovado' || admissao.status === 'Aprovado com Bolsa') &&
+                                    new Date(admissao.data_inicio) <= hoje && new Date(admissao.data_termino) >= hoje).length;
+                            }
+                            %>
+                            <%= projetosAtivos %></p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Projetos Concluídos</h3>
+                        <p> <%= projetosConcluidos %></p>
+                    </div>
+                </div>
+
+                <div class="projects-section">
+                    <h2>Projetos em Andamento</h2>
+                    <div id="projects-list">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Pesquisa Avançada de Projetos</h2>
+            <form id="advanced-search-form">
+                <input type="text" placeholder="Nome do projeto">
+                <input type="text" placeholder="Aluno participante">
+                <input type="text" placeholder="Palavras-chave">
+                <select>
+                    <option value="">Área de pesquisa</option>
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="saude">Saúde</option>
+                    <option value="engenharia">Engenharia</option>
+                </select>
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/dashboard_script/professor.js"></script>
+</body>
+</html>

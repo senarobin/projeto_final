@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Lista de Eventos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .main-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .event-card {
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="container mt-5">
+        <h1 class="main-title fade-in">
+            <i class="fas fa-calendar-alt"></i> Eventos Programados
+        </h1>
+
+        <div class="row" id="events-container">
+            <% eventos.forEach(function(evento, index) { %>
+                <div class="col-md-4 mb-4 fade-in" style="animation-delay: <%= index * 0.1 %>s;">
+                    <div class="card event-card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= evento.nome %></h5>
+                            <p class="card-text"><i class="fas fa-calendar-day"></i> <strong>Data:</strong> <%= new Date(evento.data).toLocaleDateString('pt-BR') %></p>
+                            <p class="card-text"><i class="fas fa-align-left"></i> <strong>Descrição:</strong> <%= evento.descricao %></p>
+                            <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal<%= evento.id %>">
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="modal fade" id="modal<%= evento.id %>" tabindex="-1" aria-labelledby="modalLabel<%= evento.id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel<%= evento.id %>">Detalhes do Evento: <%= evento.nome %></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p><strong>Nome:</strong> <%= evento.nome %></p>
+                                <p><strong>Data:</strong> <%= new Date(evento.data).toLocaleDateString('pt-BR') %></p>
+                                <p><strong>Descrição:</strong> <%= evento.descricao %></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" onclick="gerenciarEvento(<%= evento.id %>)">Gerenciar</button>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>        
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        function gerenciarEvento(eventoId) {
+            console.log('Gerenciando evento:', eventoId);
+            alert('Redirecionando para a página de gerenciamento do evento ' + eventoId);
+        }
+    </script>
+</body>
+</html>

@@ -1,4 +1,82 @@
-/* Estilo Geral */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.navbar {
+    transition: all 0.3s;
+}
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 150px 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.stats-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+footer {
+    background-color: #343a40;
+    color: white;
+}
+ 
+.quem-somos {
+    display: flex;
+}
+
+.texto-facisa ul {
+
+    list-style: none;
+}
+.image-facisa img {
+    height: 300px;
+    width: 700px;
+
+}
+/*
 body {
     margin: 0;
     padding: 0;
@@ -46,9 +124,6 @@ body {
     cursor: pointer;
     color: white;
 }
-
-
-
 
 .pesquisa-container {
     color: #333;
@@ -184,3 +259,4 @@ a:hover {
     color: #333;
     text-decoration: none;
 }
+*/

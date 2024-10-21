@@ -1,45 +1,332 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>Nupex - Impulsionando a Pesquisa e Extensão</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="/unifacisalogo.png" alt="Unifacisa Logo" class="logo-img">
-            <p class="logo-name"><strong>Nupex</strong></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/unifacisalogo.png" alt="Unifacisa Logo" height="40">
+                <strong>Nupex</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Depoimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="loginBtn">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary ms-2" href="#" id="cadastroBtn">Cadastro</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <ul class="opcoes-container">
-            <li class="opcao-container" id="loginBtn">Login</li>
-            <li class="opcao-container" id="cadastroBtn">Cadastro</li>
-            <li class="opcao-container">Suporte</li>
-        </ul>
-    </header>
+    </nav>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span id="closeLogin" class="close">&times;</span>
-            <%- include('login') %>
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4" data-aos="fade-up">Impulsione sua Carreira Acadêmica com o Nupex</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="100">Descubra projetos inovadores, conecte-se com pesquisadores e faça a diferença na comunidade acadêmica.</p>
+            <div class="input-group mb-3 mx-auto" style="max-width: 500px;" data-aos="fade-up" data-aos-delay="200">
+                <input type="text" class="form-control" placeholder="Pesquise projetos ou áreas de interesse">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </div>
         </div>
-    </div>
-
-    <div id="cadastroModal" class="modal">
-        <div class="modal-content">
-            <span id="closeCadastro" class="close">&times;</span>
-            <%- include('cadastro') %>
-        </div>
-    </div>
-
-    <section class="pesquisa-container">
-        <h2>Já sabe por onde começar?</h2>
-        <h3>Encontre um projeto em nosso acervo</h3>
-        <input type="text" placeholder="Pesquise o projeto" class="input">
-        <p></p>
     </section>
 
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Sobre o Nupex</h2>
+            <div class="quem-somos">
+                <div class="texto-facisa" data-aos="fade-right">
+                    <h3>Nossa Missão</h3>
+                    <p>O Núcleo de Pesquisa e Extensão (Nupex) tem como missão fomentar a excelência em pesquisa e extensão universitária, promovendo a integração entre academia e sociedade.</p>
+                    <h3>Nossos Valores</h3>
+                    <ul>
+                        <li>Inovação e criatividade</li>
+                        <li>Colaboração interdisciplinar</li>
+                        <li>Compromisso com a excelência acadêmica</li>
+                        <li>Responsabilidade social e impacto na comunidade</li>
+                    </ul>
+                </div>
+                <div class="image-facisa" data-aos="fade-left">
+                    <img src="imgs/facisa.png" alt="Equipe Nupex" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Projetos em Destaque</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <img src="imgs/tec.jpg" class="card-img-top" alt="Projeto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Inovação Tecnológica</h5>
+                            <p class="card-text">Desenvolvimento de soluções tecnológicas para problemas sociais.</p>
+                            <a href="#" class="btn btn-primary">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="https://zellosaude.app/wp-content/uploads/2021/05/zello_saudecoletiva.jpg" class="card-img-top" alt="Projeto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Saúde Comunitária</h5>
+                            <p class="card-text">Ações de prevenção e promoção da saúde em comunidades carentes.</p>
+                            <a href="#" class="btn btn-primary">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <img src="imgs/ambiental.jpg" class="card-img-top" alt="Projeto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sustentabilidade Ambiental</h5>
+                            <p class="card-text">Pesquisas e ações para promover práticas sustentáveis no campus e na cidade.</p>
+                            <a href="#" class="btn btn-primary">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">O que dizem nossos participantes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="text-center">
+                        <img src="https://media.istockphoto.com/id/1386479313/pt/foto/happy-millennial-afro-american-business-woman-posing-isolated-on-white.jpg?s=612x612&w=0&k=20&c=rzUSobX0RTFPksl6-Pl28C5itfvrW3mug6NkFW7kPeQ=" alt="Depoimento 1" class="testimonial-img">
+                        <p>"Participar dos projetos do Nupex foi fundamental para minha formação acadêmica e profissional."</p>
+                        <strong>Maria Silva</strong>, Estudante de Engenharia
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <img src="https://static-cse.canva.com/blob/759723/DrobotDeanCanva.jpg" alt="Depoimento 2" class="testimonial-img">
+                        <p>"O Nupex me proporcionou oportunidades únicas de aplicar meus conhecimentos na prática."</p>
+                        <strong>João Santos</strong>, Professor de Medicina
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <img src="https://s3.wasabisys.com/instax/74/instax/2023/03/fotos-fofas-para-perfil-1678633942-scaled.jpeg" alt="Depoimento 3" class="testimonial-img">
+                        <p>"Graças ao Nupex, pude desenvolver habilidades essenciais para minha carreira em pesquisa."</p>
+                        <strong>Ana Oliveira</strong>, Pesquisadora
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Nupex em Números</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4" data-aos="fade-up">
+                    <div class="stats-item">
+                        <div class="stats-number" data-target="100">0</div>
+                        <div>Projetos Ativos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-item">
+                        <div class="stats-number" data-target="500">0</div>
+                        <div>Estudantes Envolvidos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-item">
+                        <div class="stats-number" data-target="50">0</div>
+                        <div>Parcerias com Empresas</div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-item">
+                        <div class="stats-number" data-target="200">0</div>
+                        <div>Publicações Científicas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title" data-aos="fade-up">Perguntas Frequentes</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" data-aos="fade-up">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Como posso participar de um projeto do Nupex?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Para participar, você deve se cadastrar em nossa plataforma e buscar projetos de seu interesse. Entre em contato com o coordenador do projeto para mais informações sobre o processo de seleção.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Quais são os benefícios de participar dos projetos do Nupex?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Participar dos projetos do Nupex oferece diversos benefícios, como experiência prática, networking, desenvolvimento de habilidades profissionais, oportunidades de publicação e a chance de fazer a diferença na comunidade.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Como posso propor um novo projeto para o Nupex?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Professores e pesquisadores podem propor novos projetos através de nossa plataforma online. Acesse a seção "Submissão de Projetos" e siga as instruções para enviar sua proposta. Nossa equipe avaliará e entrará em contato para os próximos passos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 data-aos="fade-up">Pronto para fazer parte do Nupex?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Junte-se a nós e faça a diferença na pesquisa e extensão universitária!</p>
+            <a href="#" class="btn btn-light btn-lg mt-3" data-aos="fade-up" data-aos-delay="200">Cadastre-se Agora</a>
+        </div>
+    </section>
+
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Sobre o Nupex</h5>
+                    <p>O Núcleo de Pesquisa e Extensão da Unifacisa, promovendo a excelência acadêmica e o impacto social.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Projetos</a></li>
+                        <li><a href="#" class="text-white">Publicações</a></li>
+                        <li><a href="#" class="text-white">Eventos</a></li>
+                        <li><a href="#" class="text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contate-nos</h5>
+                    <p>Email: nupex@unifacisa.edu.br<br>
+                    Telefone: (XX) XXXX-XXXX</p>
+                    <div class="social-icons mt-2">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center mt-3">
+                <p>&copy; 2024 Nupex - Unifacisa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/login" method="POST">
+                    <div class="mb-3">
+                        <label for="loginMatricula" class="form-label">Matrícula</label>
+                        <input type="text" name="identificacao" placeholder="Matrícula" class="form-control" id="loginMatricula" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Senha</label>
+                        <input type="password" name="senha" placeholder="Senha" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cadastroModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/cadastro" method="POST">
+                    <div class="mb-3">
+                        <label for="cadastroTipoUsuario" class="form-label">Tipo de Usuário</label>
+                        <select class="form-control" id="cadastroTipoUsuario" name="tipoUsuario" required>
+                            <option value="">Selecione</option>
+                            <option value="professor">Professor</option>
+                            <option value="aluno">Aluno</option>
+                            <option value="admin">Administrador</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroIdentificacao" class="form-label">Identificação</label>
+                        <input type="text" class="form-control" placeholder="Matrícula" id="cadastroIdentificacao" name="identificacao" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroPassword" class="form-label">Senha</label>
+                        <input type="password" class="form-control" placeholder="Senha" id="cadastroPassword" name="senha" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroCategoria" class="form-label">Categoria</label>
+                        <input type="text" class="form-control" id="cadastroCategoria" name="categoria">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/script.js"></script>
 </body>
 </html>

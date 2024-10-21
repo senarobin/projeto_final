@@ -208,6 +208,7 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .avatar-dropdown {
     position: relative;
     display: inline-block;
@@ -267,26 +268,6 @@ header {
     text-align: center;
 }
 
-.modal-content {
-    border: none;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.modal-header {
-    border-bottom: none;
-    padding: 1rem;
-}
-
-.modal-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.modal-body {
-    padding: 1rem;
-}
-
 @media (max-width: 768px) {
     .dashboard-container {
         flex-direction: column;
@@ -310,4 +291,3 @@ header {
         margin-bottom: 20px;
     }
 }
-

@@ -1,0 +1,17 @@
+node_modules/
+
+.env
+.env.local
+
+dist/
+build/
+
+uploads/
+*.pdf
+
+.vscode/
+.idea/
+
+.DS_Store
+
+config.js

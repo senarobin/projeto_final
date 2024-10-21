@@ -1,12 +1,50 @@
+<div class="modal fade" id="cadastroModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="cadastroNome" class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" id="cadastroNome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="cadastroEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroPassword" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="cadastroPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cadastroConfirmPassword" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="cadastroConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
 <h2>Cadastro</h2>
 <form action="/cadastro" method="post">
     <div class="login-container">
-        <input type="radio" id="professor" name="tipoUsuario" value="professor" required>
-        <label for="professor">Professor</label>
-        <input type="radio" id="aluno" name="tipoUsuario" value="aluno" required>
-        <label for="aluno">Aluno</label>
-        <input type="text" placeholder="Matrícula" name="matricula" required autocomplete="off">
-        <input type="password" placeholder="Senha" name="senha" required autocomplete="off">
+        <label for="tipoUsuario">Tipo de Usuário:</label>
+        <select id="tipoUsuario" name="tipoUsuario" required>
+            <option value="admin">Admin</option>
+            <option value="aluno">Discente</option>
+            <option value="professor">Docente</option>
+        </select>
+
+        <input type="text" id="identificacao" name="identificacao" placeholder="Matrícula" required autocomplete="off">
+        
+        <input type="password" id="senha" name="senha" placeholder="Senha" required autocomplete="off">
+        
         <label for="categoria">Sua área:</label>
         <select id="categoria" name="categoria" required>
             <option value="">Selecione uma opção</option>
@@ -14,6 +52,8 @@
             <option value="saude">Saúde</option>
             <option value="humanas">Humanas</option>
         </select>
+        
         <button type="submit">Cadastrar</button>
     </div>
 </form>
+-->

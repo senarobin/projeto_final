@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Projeto - UNIFACISA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dashboard_estilo/avaliacao.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center mb-4">AVALIAÇÃO DE PROJETO - UNIFACISA</h3>
+
+        <form id="avaliacaoForm" method="POST" action="/avaliacao">
+            <div id="secao1" class="section-box">
+                <h5 class="mb-3">INFORMAÇÕES GERAIS</h5>
+                <div class="mb-3">
+                    <label for="projeto" class="form-label">Projeto:</label>
+                    <input type="text" class="form-control" id="projeto" name="projeto" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Modalidade:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="modalidade" id="pesquisa" value="Pesquisa" required>
+                        <label class="form-check-label" for="pesquisa">Pesquisa</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="modalidade" id="extensao" value="Extensão">
+                        <label class="form-check-label" for="extensao">Extensão</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="proponente" class="form-label">Proponente:</label>
+                    <input type="text" class="form-control" id="proponente" name="proponente" required>
+                </div>
+                <div class="mb-3">
+                    <label for="avaliador" class="form-label">Avaliador:</label>
+                    <input type="text" class="form-control" id="avaliador" name="avaliador" required>
+                </div>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Curso:</label>
+                    <input type="text" class="form-control" id="curso" name="curso" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="proximaSecao('relevancia')">Próximo</button>
+            </div>
+
+            <div id="relevancia" class="section-box" style="display: none;">
+                <h5 class="mb-3">Relevância da Proposta</h5>
+                <div class="mb-3">
+                    <label class="form-label">Identificação com os modelos de projeto</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="relevancia1" name="relevancia1">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Justificativa da problematização</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="relevancia2" name="relevancia2">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Clareza dos objetivos propostos</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="relevancia3" name="relevancia3">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Relevância social e vínculo com a realidade</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="relevancia4" name="relevancia4">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Potencial de contribuição científica</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="relevancia5" name="relevancia5">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="justificativaRelevancia" class="form-label">Justificativas/ comentários:</label>
+                    <textarea class="form-control" id="justificativaRelevancia" name="justificativaRelevancia" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="secaoAnterior('secao1')">Anterior</button>
+                <button type="button" class="btn btn-primary" onclick="proximaSecao('estrutura')">Próximo</button>
+            </div>
+
+            <div id="estrutura" class="section-box" style="display: none;">
+                <h5 class="mb-3">Estrutura da Proposta</h5>
+                <div class="mb-3">
+                    <label class="form-label">Estruturação e formatação adequadas</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="estrutura1" name="estrutura1">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Atualidade e adequação do referencial teórico</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="estrutura2" name="estrutura2">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Clareza e consistência da metodologia</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="estrutura3" name="estrutura3">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apresentação e organização dos conteúdos</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="estrutura4" name="estrutura4">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Apresentação da previsão orçamentária</label>
+                    <input type="range" class="form-range" min="0" max="10" step="1" id="estrutura5" name="estrutura5">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span>10</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="justificativaEstrutura" class="form-label">Justificativas/ comentários:</label>
+                    <textarea class="form-control" id="justificativaEstrutura" name="justificativaEstrutura" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="secaoAnterior('relevancia')">Anterior</button>
+                <button type="button" class="btn btn-primary" onclick="proximaSecao('consideracoes')">Próximo</button>
+            </div>
+
+            <div id="consideracoes" class="section-box" style="display: none;">
+                <h5 class="mb-3">Considerações Finais</h5>
+                <div class="mb-3">
+                    <label for="observacoes" class="form-label">Observações/ comentários:</label>
+                    <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="notaFinal" class="form-label">Nota Final:</label>
+                    <input type="number" class="form-control" id="notaFinal" name="notaFinal" min="0" max="10" required>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="secaoAnterior('estrutura')">Anterior</button>
+                <button type="submit" class="btn btn-success">Enviar Avaliação</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/dashboard_script/avaliacao.js"></script>
+</body>
+</html>

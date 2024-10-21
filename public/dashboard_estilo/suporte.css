@@ -1,0 +1,147 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #326589;
+    --accent-color: #FFB81C;
+    --background-color: #F8F9FA;
+    --text-color: #333333;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+.navbar {
+    background: linear-gradient(90deg, var(--primary-color) 35%, var(--secondary-color) 165%);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.voltar {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: var(--background-color);
+    font-weight: bold;
+}
+.voltar:hover {
+    background-color: #e5a619;
+}
+.pesquisa-suporte {
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 70px; /* Adicionado para dar espaço à navbar fixa */
+}
+.pesquisa-suporte input[type="text"] {
+    padding: 15px;
+    width: 60%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.pesquisa-suporte button[type="submit"] {
+    padding: 15px 25px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.pesquisa-suporte button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+.titulo {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.titulo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 5px;
+    background-color: var(--accent-color);
+}
+.fale-conosco, .sobre-empresa, .servicos-oferecidos, .testemunhos {
+    padding: 60px 20px;
+    text-align: center;
+}
+.sobre-empresa {
+    background-color: var(--primary-color);
+    color: white;
+}
+.servicos-lista {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.servicos-lista li {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    flex-basis: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servicos-lista li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.testemunho {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.testemunho-autor {
+    font-weight: bold;
+    margin-top: 10px;
+}
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

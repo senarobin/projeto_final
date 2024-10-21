@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submeter Novo Projeto - UNIFACISA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/dashboard_estilo/projetos.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center mb-4">SUBMETER NOVO PROJETO - UNIFACISA</h3>
+
+        <form id="projetosForm" action="/projetos" method="POST" enctype="multipart/form-data">
+            <div id="secao1" class="section-box">
+                <h5 class="mb-3">INFORMAÇÕES GERAIS</h5>
+                <div class="mb-3">
+                    <label for="nomeAluno" class="form-label">Nome do Aluno</label>
+                    <input type="text" class="form-control" id="nomeAluno" name="nome_aluno" required>
+                </div>
+                <div class="mb-3">
+                    <label for="matriculaAluno" class="form-label">Matrícula do Aluno</label>
+                    <input type="text" class="form-control" id="matriculaAluno" name="matricula_aluno" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nomeProjeto" class="form-label">Nome do Projeto</label>
+                    <input type="text" class="form-control" id="nomeProjeto" name="nome" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao2')">Próximo</button>
+            </div>
+
+            <div id="secao2" class="section-box" style="display: none;">
+                <h5 class="mb-3">DETALHES DO PROJETO</h5>
+                <div class="mb-3">
+                    <label for="descricaoProjeto" class="form-label">Descrição</label>
+                    <textarea class="form-control" id="descricaoProjeto" name="descricao" rows="4" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="professorOrientador" class="form-label">Professor Orientador</label>
+                    <input type="text" class="form-control" id="professorOrientador" name="professor_orientador" required>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSecao('secao1')">Voltar</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao3')">Próximo</button>
+            </div>
+
+            <div id="secao3" class="section-box" style="display: none;">
+                <h5 class="mb-3">DATAS E ÁREA</h5>
+                <div class="mb-3">
+                    <label for="dataInicio" class="form-label">Data de Início</label>
+                    <input type="date" class="form-control" id="dataInicio" name="data_inicio" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dataTermino" class="form-label">Data de Término</label>
+                    <input type="date" class="form-control" id="dataTermino" name="data_termino" required>
+                </div>
+                <div class="mb-3">
+                    <label for="areaProjeto" class="form-label">Área do Projeto</label>
+                    <select class="form-select" id="areaProjeto" name="area" required>
+                        <option value="">Selecione uma área</option>
+                        <option value="Engenharia">Engenharia</option>
+                        <option value="Ciências da Computação">Ciências da Computação</option>
+                        <option value="Biologia">Biologia</option>
+                        <option value="Física">Física</option>
+                        <option value="Química">Química</option>
+                        <option value="Matemática">Matemática</option>
+                        <option value="Ciências Sociais">Ciências Sociais</option>
+                        <option value="Artes">Artes</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSecao('secao2')">Voltar</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao4')">Próximo</button>
+            </div>
+
+            <div id="secao4" class="section-box" style="display: none;">
+                <h5 class="mb-3">ARQUIVOS DO PROJETO</h5>
+                <div class="mb-3">
+                    <label for="arquivosProjeto" class="form-label">Arquivos do Projeto</label>
+                    <input type="file" class="form-control" id="arquivosProjeto" name="arquivos" multiple>
+                    <div id="arquivosSelecionados" class="form-text mt-2"></div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSecao('secao3')">Voltar</button>
+                <button type="submit" class="btn btn-primary">Submeter Projeto</button>
+            </div>
+        </form>
+        <div id="alertContainer"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/dashboard_script/projetos.js"></script>
+</body>
+</html>
+

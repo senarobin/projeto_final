@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Admissão de Proposta de Projeto - UNIFACISA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dashboard_estilo/avaliacao_admin.css">
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center mb-4">FORMULÁRIO DE ADMISSÃO DE PROPOSTA DE PROJETO - UNIFACISA</h3>
+
+        <form id="admissaoForm" method="POST" action="/admissao">
+
+            <div id="secao1">
+                <h5 class="mb-3">INFORMAÇÕES GERAIS</h5>
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título do Projeto</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="orientador" class="form-label">Orientador</label>
+                    <input type="text" class="form-control" id="orientador" name="orientador" required>
+                </div>
+                <div class="mb-3">
+                    <label for="aluno" class="form-label">Aluno</label>
+                    <input type="text" class="form-control" id="aluno" name="aluno" required>
+                </div>
+                <div class="mb-3">
+                    <label for="matricula" class="form-label">Matricula</label>
+                    <input type="text" class="form-control" id="matricula" name="matricula" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao2')">Próximo</button>
+            </div>
+
+            <div id="secao2" style="display: none;">
+                <h5 class="mb-3">CRITÉRIOS ANALÍTICOS</h5>
+                <div class="mb-4">
+                    <h6>Grupo 01: Impacto científico e relevância social</h6>
+                    <div class="mb-2">
+                        <p>1. A proposta tem potencial de contribuição para questões relevantes na realidade local, regional e nacional?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio1" id="criterio1_sim" value="true" required>
+                            <label class="form-check-label" for="criterio1_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio1" id="criterio1_nao" value="false">
+                            <label class="form-check-label" for="criterio1_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio1" id="criterio1_na" value="N/A">
+                            <label class="form-check-label" for="criterio1_na">N/A</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <p>2. O projeto apresenta inovações e/ou soluções que atendem a necessidades sociais e científicas?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio2" id="criterio2_sim" value="true" required>
+                            <label class="form-check-label" for="criterio2_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio2" id="criterio2_nao" value="false">
+                            <label class="form-check-label" for="criterio2_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio2" id="criterio2_na" value="N/A">
+                            <label class="form-check-label" for="criterio2_na">N/A</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <p>3. A proposta possui relevância para o contexto acadêmico e social?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio3" id="criterio3_sim" value="true" required>
+                            <label class="form-check-label" for="criterio3_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio3" id="criterio3_nao" value="false">
+                            <label class="form-check-label" for="criterio3_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio3" id="criterio3_na" value="N/A">
+                            <label class="form-check-label" for="criterio3_na">N/A</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSecao('secao1')">Voltar</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao3')">Próximo</button>
+            </div>
+
+            <div id="secao3" style="display: none;">
+                <div class="mb-4">
+                    <h6>Grupo 02: Viabilidade Científica</h6>
+                    <div class="mb-2">
+                        <p>4. O problema de pesquisa está claramente definido?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio4" id="criterio4_sim" value="true" required>
+                            <label class="form-check-label" for="criterio4_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio4" id="criterio4_nao" value="false">
+                            <label class="form-check-label" for="criterio4_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio4" id="criterio4_na" value="N/A">
+                            <label class="form-check-label" for="criterio4_na">N/A</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <p>5. Os objetivos do projeto estão bem definidos?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio5" id="criterio5_sim" value="true" required>
+                            <label class="form-check-label" for="criterio5_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio5" id="criterio5_nao" value="false">
+                            <label class="form-check-label" for="criterio5_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio5" id="criterio5_na" value="N/A">
+                            <label class="form-check-label" for="criterio5_na">N/A</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <p>6. Os métodos propostos são adequados para atingir os objetivos?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio6" id="criterio6_sim" value="true" required>
+                            <label class="form-check-label" for="criterio6_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio6" id="criterio6_nao" value="false">
+                            <label class="form-check-label" for="criterio6_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio6" id="criterio6_na" value="N/A">
+                            <label class="form-check-label" for="criterio6_na">N/A</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostarSecao('secao2')">Voltar</button>
+                <button type="button" class="btn btn-primary" onclick="mostrarSecao('secao4')">Próximo</button>
+            </div>
+
+            <div id="secao4" style="display: none;">
+                <div class="mb-4">
+                    <h6>Grupo 03: Viabilidade Técnica</h6>
+                    <div class="mb-2">
+                        <p>7. Os recursos materiais e humanos necessários estão disponíveis?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio7" id="criterio7_sim" value="true" required>
+                            <label class="form-check-label" for="criterio7_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio7" id="criterio7_nao" value="false">
+                            <label class="form-check-label" for="criterio7_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio7" id="criterio7_na" value="N/A">
+                            <label class="form-check-label" for="criterio7_na">N/A</label>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <p>8. O cronograma de execução é viável?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio8" id="criterio8_sim" value="true" required>
+                            <label class="form-check-label" for="criterio8_sim">Sim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio8" id="criterio8_nao" value="false">
+                            <label class="form-check-label" for="criterio8_nao">Não</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="criterio8" id="criterio8_na" value="N/A">
+                            <label class="form-check-label" for="criterio8_na">N/A</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="mostrarSecao('secao3')">Voltar</button>
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/dashboard_script/avaliacao_admin.js"></script>
+</body>
+</html>

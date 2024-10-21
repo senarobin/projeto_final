@@ -1,60 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
-    function openModal(modalId) {
-        var modal = document.getElementById(modalId);
-        modal.style.display = 'block';
+AOS.init({
+    duration: 1000,
+    once: true
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+        document.querySelector('.navbar').classList.add('navbar-scrolled');
+    } else {
+        document.querySelector('.navbar').classList.remove('navbar-scrolled');
     }
+});
 
-    function closeModal(modalId) {
-        var modal = document.getElementById(modalId);
-        modal.style.display = 'none';
-    }
+// Modal triggers
+document.getElementById('loginBtn').addEventListener('click', function() {
+    var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    loginModal.show();
+});
 
-    var loginBtn = document.getElementById('loginBtn');
-    var cadastroBtn = document.getElementById('cadastroBtn');
-    var loginModal = document.getElementById('loginModal');
-    var cadastroModal = document.getElementById('cadastroModal');
-    var closeLogin = document.getElementById('closeLogin');
-    var closeCadastro = document.getElementById('closeCadastro');
-    var openCadastro = document.getElementById('openCadastro');
+document.getElementById('cadastroBtn').addEventListener('click', function() {
+    var cadastroModal = new bootstrap.Modal(document.getElementById('cadastroModal'));
+    cadastroModal.show();
+});
 
-    if (loginBtn) {
-        loginBtn.addEventListener('click', function() {
-            openModal('loginModal');
-        });
-    }
+// Animate stats numbers
+const statsNumbers = document.querySelectorAll('.stats-number');
+statsNumbers.forEach(number => {
+    const target = parseInt(number.getAttribute('data-target'));
+    const increment = target / 200;
+    let current = 0;
 
-    if (cadastroBtn) {
-        cadastroBtn.addEventListener('click', function() {
-            openModal('cadastroModal');
-        });
-    }
-
-    if (closeLogin) {
-        closeLogin.addEventListener('click', function() {
-            closeModal('loginModal');
-        });
-    }
-
-    if (closeCadastro) {
-        closeCadastro.addEventListener('click', function() {
-            closeModal('cadastroModal');
-        });
-    }
-
-    if (openCadastro) {
-        openCadastro.addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o comportamento padrão do link
-            closeModal('loginModal'); // Fecha o modal de login se estiver aberto
-            openModal('cadastroModal'); // Abre o modal de cadastro
-        });
-    }
-
-    window.addEventListener('click', function(event) {
-        if (event.target === loginModal) {
-            closeModal('loginModal');
+    const updateNumber = () => {
+        if (current < target) {
+            current += increment;
+            number.textContent = Math.ceil(current);
+            setTimeout(updateNumber, 10);
+        } else {
+            number.textContent = target;
         }
-        if (event.target === cadastroModal) {
-            closeModal('cadastroModal');
-        }
-    });
+    };
+
+    updateNumber();
 });

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Aluno - Notificações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .notification-item {
+            margin-bottom: 20px;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s; 
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .project-card {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .status-badge {
+            font-size: 0.9em;
+            padding: 0.25em 0.6em;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Projetos</h1>
+        
+        <div class="notifications-container">
+            <% if (!admissoes || admissoes.length === 0) { %>
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i> Não há notificações de admissões.
+                </div>
+            <% } else { %>
+                <% admissoes.slice(-3).forEach(admissao => { %>
+                    <div class="notification-item fade-in">
+                        <div class="card project-card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><%= admissao.nome_projeto %></h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <i class="fas fa-user"></i> 
+                                    <strong>Aluno:</strong> <%= admissao.nome_aluno %>
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-graduation-cap"></i> 
+                                    <strong>Status:</strong> 
+                                    <span class="status-badge badge badge-<%= admissao.status === 'Aprovado' || admissao.status === 'Aprovado com Bolsa' ? 'success' : (admissao.status === 'Rejeitado' ? 'danger' : 'warning') %>"><%= admissao.status %></span>
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-star"></i> 
+                                    <strong>Nota Final:</strong> <%= admissao.nota_final ? admissao.nota_final.toFixed(1) : 'N/A' %>
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-clipboard-check"></i> 
+                                    <strong>Elegível para Bolsa:</strong> <%= admissao.elegivel_bolsa ? 'Sim' : 'Não' %>
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-calendar-alt"></i> 
+                                    <strong>Data de Submissão:</strong> <%= admissao.data_submissao ? new Date(admissao.data_submissao).toLocaleDateString('pt-BR') : 'N/A' %>
+                                </p>
+                    
+                                <% if (admissao.status === 'Aprovado' || admissao.status === 'Aprovado com Bolsa') { %>
+                                    <div class="alert alert-success mt-3" role="alert">
+                                        <i class="fas fa-check-circle"></i> Parabéns! Você foi aprovado para o projeto.
+                                        <% if (admissao.status === 'Aprovado com Bolsa') { %>
+                                            Você também é elegível para uma bolsa de estudos.
+                                        <% } %>
+                                    </div>
+                                <% } else if (admissao.status === 'Rejeitado') { %>
+                                    <div class="alert alert-danger mt-3" role="alert">
+                                        <i class="fas fa-exclamation-circle"></i> Infelizmente, sua aplicação não foi aprovada desta vez. Continue se esforçando!
+                                    </div>
+                                <% } else { %>
+                                    <div class="alert alert-warning mt-3" role="alert">
+                                        <i class="fas fa-clock"></i> Seu processo de admissão ainda está sendo avaliado. Fique atento para atualizações.
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>                                        
+                <% }); %>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
