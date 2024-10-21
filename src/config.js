@@ -14,7 +14,6 @@ connection.connect((err) => {
     }
     console.log('Conectado ao MySQL');
     
-    // Teste a conexão com uma query simples
     connection.query('SELECT 1', (err, results) => {
         if (err) {
             console.error('Erro ao executar query de teste:', err);
